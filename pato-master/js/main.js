@@ -187,19 +187,27 @@
             for(var i=0; i<labelGallerys.length; i++) {
                 $(labelGallerys[i]).removeClass('is-actived');
             }
-
             $(this).addClass('is-actived');
         });
     });
 
+    //handle button login to sigup and back
+    $('#btn_tosignup').on('click',function(){
+        $('#loginbody').css('display','none')
+        $('#registerbody').css('display','block')
+    })
+    $('#btn_tologin').on('click',function(){
+        $('#registerbody').css('display','none')
+        $('#loginbody').css('display','block')
+    })
+    //==============================================
     
-
 })(jQuery);
 
 // dang nhap dang ky show from
 $(document).ready(function() {             
     $('#loginModal').modal('show');
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-  })
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 });
