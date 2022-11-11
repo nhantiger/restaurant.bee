@@ -37,6 +37,7 @@
   <link rel="stylesheet" type="text/css" href="css/util.css" />
   <link rel="stylesheet" type="text/css" href="css/main.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="./css/admin/index.css">
   <!--===============================================================================================-->
 </head>
 
@@ -54,31 +55,31 @@
         </div>
         <div class="memu_body">
           <ul class="menu_list">
-            <li class="menu_list_item">
+            <li class="menu_list_item" id="item_user">
               <div class="item_icon">
                 <i class="fas fa-user"></i>
               </div>
               <span class="item_title">User</span>
             </li>
-            <li class="menu_list_item">
+            <li class="menu_list_item" id="item_order">
               <div class="item_icon">
                 <i class="fas fa-cart-plus"></i>
               </div>
               <span class="item_title">Order</span>
             </li>
-            <li class="menu_list_item">
+            <li class="menu_list_item" id="item_gallery">
               <div class="item_icon">
                 <i class="fas fa-book"></i>
               </div>
               <span class="item_title">Gallery</span>
             </li>
-            <li class="menu_list_item">
+            <li class="menu_list_item" id="item_blog">
               <div class="item_icon">
                 <i class="fas fa-newspaper-o"></i>
               </div>
               <span class="title">Blog</span>
             </li>
-            <li class="menu_list_item">
+            <li class="menu_list_item" id="item_profile">
               <div class="item_icon">
                 <i class="fas fa-info"></i>
               </div>
@@ -126,7 +127,7 @@
           </div>
         </div>
         <div class="body_content">
-          <div class="container_content">
+          <div class="container_content" id="item_blog_content">
             <div class="container_content_title">Title</div>
             <form action="#" method="post"class="form_content">
               <div class="form_item">
@@ -171,6 +172,105 @@
               
             </div>
           </div>
+          <div class="container_content" id="item_user_content">
+            <div>
+              <div class="table_header">
+                <div class="table_title">All User</div>
+                <div class="table_search">
+                  <input type="text" name="search" id="search_inp" class="search_inp" placeholder="Search...">
+                  <button class="btn btn-info">Search</button>
+                </div>
+              </div>
+            </div>
+            <table class="table table-striped table-hover table_content">
+              <tbody>
+                <tr class="table_row">
+                  <td class="table_col" id="user_info">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col "><i class="fas fa-share-alt col_icon" id="btn_open_modal"></i></td>
+                  <td class="table_col "><i class="fas fa-remove col_icon"></i></td>
+                </tr>
+                <tr class="table_row">
+                  <td class="table_col">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col "><i class="fas fa-share-alt col_icon"></i></td>
+                  <td class="table_col "><i class="fas fa-remove col_icon"></i></td>
+                </tr>
+                <tr class="table_row">
+                  <td class="table_col">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col "><i class="fas fa-share-alt col_icon"></i></td>
+                  <td class="table_col "><i class="fas fa-remove col_icon"></i></td>
+                </tr>
+                <tr class="table_row">
+                  <td class="table_col">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col "><i class="fas fa-share-alt col_icon"></i></td>
+                  <td class="table_col "><i class="fas fa-remove col_icon"></i></td>
+                </tr>
+                <tr class="table_row">
+                  <td class="table_col">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col "><i class="fas fa-share-alt col_icon"></i></td>
+                  <td class="table_col "><i class="fas fa-remove col_icon"></i></td>
+                </tr>
+                <tr class="table_row">
+                  <td class="table_col">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col "><i class="fas fa-share-alt col_icon"></i></td>
+                  <td class="table_col "><i class="fas fa-remove col_icon"></i></td>
+                </tr>
+                <tr class="table_row">
+                  <td class="table_col">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col">title</td>
+                  <td class="table_col "><i class="fas fa-share-alt col_icon"></i></td>
+                  <td class="table_col "><i class="fas fa-remove col_icon"></i></td>
+                </tr>
+              </tbody>
+            </table>
+            <ul class="table_page">
+              <li class="table_page_item table_page_control"><i class="fas fa-arrow-left"></i></li>
+              <li class="table_page_item page_active">1</li>
+              <li class="table_page_item">2</li>
+              <li class="table_page_item">3</li>
+              <li class="table_page_item table_page_control"><i class="fas fa-arrow-right"></i></li>
+            </ul>
+            <div class="content_modal" id="user_info_modal">
+                <div class="info_header">
+                  <i class="fas fa-remove info_close_icon"></i>
+                  <div class="info_avatar">
+                    <img src="https://th.bing.com/th/id/OIP.ysdd9pBlwnNdnxQoC8y4KQHaHa?pid=ImgDet&rs=1
+                    " alt="info_img" class="info_img"> 
+                  </div>
+                </div>
+                <div class="info_body">
+                  <div class="info_heading">UserName</div>
+                </div>
+            </div>
+          </div>
+          <div class="container_content" id="item_gallery_content">
+            gallery
+          </div>
+          <div class="container_content" id="item_profile_content">
+            profile
+          </div>
+          <div class="container_content" id="item_order_content">
+            order
+          </div>
         </div>
       </div>
   </main>
@@ -200,6 +300,7 @@
   <script type="text/javascript" src="vendor/lightbox2/js/lightbox.min.js"></script>
   <!--===============================================================================================-->
   <script src="js/main.js"></script>
+  <script src="js/admin.js"></script>
 </body>
 
 </html>
