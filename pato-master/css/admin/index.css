@@ -255,4 +255,93 @@
     text-align: center;
     font-size: larger;
 }
+.user_proccess_modal{
+    padding: 20px;
+}
+.proccess_form_item{
+    margin: 10px 0;
+}
+.dinalog_remove{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+    display: block;
+    padding: 20px;
+    display: none;
+}
+.dinalog_heading{
+    font-size: 20px;
+    text-align: center;
+}
+.dinalog_controls{
+    display: flex;
+    margin-top: 40px;
+    justify-content: flex-end;
+}
+.profile_header{
+    display: flex;
+    gap: 40px;
+}
+.profile_avatar{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.avatar_img{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    
+}
+.profile_header_title{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.title_email{
+    color: var(--primary_cryan)
+}
+.profile_body{
+    margin-top: 50px;
+}
+.profile_body_heading{
+    font-size: 30px;
+}
+.profile_info{
+    margin: 20px 0;
+}
+.profile_info_item{
+    display: flex;
+    margin: 20px 0;
+    gap: 40px;
+    align-items: center;
+}
+.profile_info_lable{
+    min-width: 200px   ;
+    margin: 0;
+}
+.profile_inp{
+    outline-width: 1px;
+    outline-color: #ccc;
+    outline-style: solid;
+    padding: 5px;
+    border-radius: 2px;
+    min-width: 50%;
+}
+.profile_inp:focus-visible{
+   outline: none; 
+}
+.btn_profile_update{
+    padding: 10px;
+    color: #fff;
+    background-color: var(--primary_cryan);
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn_profile_update:hover{
+    background-color: var(--primary_cryan_hover);
+}
 /*admin*/

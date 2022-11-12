@@ -169,7 +169,6 @@
                   </tbody>
                 </table>
               </div>
-              
             </div>
           </div>
           <div class="container_content" id="item_user_content">
@@ -189,8 +188,8 @@
                   <td class="table_col">title</td>
                   <td class="table_col">title</td>
                   <td class="table_col">title</td>
-                  <td class="table_col "><i class="fas fa-share-alt col_icon" id="btn_open_modal"></i></td>
-                  <td class="table_col "><i class="fas fa-remove col_icon"></i></td>
+                  <td class="table_col "><i class="fas fa-share-alt col_icon" id="btn_open_modal_proccess"></i></td>
+                  <td class="table_col "><i class="fas fa-remove col_icon" id="btn_open_remove_dinalog"></i></td>
                 </tr>
                 <tr class="table_row">
                   <td class="table_col">title</td>
@@ -261,12 +260,89 @@
                   <div class="info_heading">UserName</div>
                 </div>
             </div>
+            <div class="content_modal user_proccess_modal" id="user_proccess_modal">
+                <div class="proccess_heading">Username</div>
+                <form action="" class="proccess_form">
+                  <div class="proccess_form_item">
+                    <lable class="proccess_title">Title</lable>
+                    <input type="text" name="proccess_inp" id="proccess_inp">
+                  </div>
+                  <div class="proccess_form_item">
+                    <lable class="proccess_title">Title</lable>
+                    <input type="text" name="proccess_inp" id="proccess_inp">
+                  </div>
+                  <div class="proccess_form_item">
+                    <lable class="proccess_title">Title</lable>
+                    <input type="text" name="proccess_inp" id="proccess_inp">
+                  </div>
+                  <button class="btn btn-info">Apply</button>
+                  <button class="btn btn-danger">Cancel</button>
+                </form>
+
+            </div>
+            <div class="content_modal dinalog_remove" id="user_dinalog_remove">
+              <div class="dinalog_heading">
+                Are you sure to remove the user ??
+              </div>
+              <div class="dinalog_controls">
+                <div class="btn btn-info" id="apply_remove_user">OK</div>
+                <div class="btn btn-danger" id="cancel_dinalog">Cancel</div>
+              </div>
+            </div>
           </div>
           <div class="container_content" id="item_gallery_content">
             gallery
           </div>
           <div class="container_content" id="item_profile_content">
-            profile
+            <div class="profile_header">
+              <div class="profile_avatar">
+                <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/125296371/original/653cc81872119844644e33d40f5afd9bd61743b6/create-cool-cartoon-avatars.jpg" alt="avatar_img" class="avatar_img">
+              </div>
+              <div class="profile_header_title">
+                <h2 class="header_title">
+                  Username
+                </h2>
+                <span class="header_title_sub_1">
+                  <span class="title_email">
+                  admin@gmail.com
+                  </span>
+                  <span class="title_email_sub">
+                     - Administrator
+                  </span>
+                </span>
+                <span class="header_title_sub_2">
+                  Admin profile
+                </span>
+                span
+              </div>
+            </div>
+            <div class="profile_body">
+              <div class="profile_body_heading">Account</div>
+              <div class="profile_info">
+                <div class="profile_info_item">
+                  <label for="username" class="profile_info_lable">Username</label>
+                  <input type="text" name="username" id="username" class="profile_inp" value="Username">
+                </div>
+                <div class="profile_info_item">
+                  <label for="username" class="profile_info_lable">Username</label>
+                  <input type="text" name="username" id="username" class="profile_inp" value="Username">
+                </div>
+                <div class="profile_info_item">
+                  <label for="username" class="profile_info_lable">Username</label>
+                  <input type="text" name="username" id="username" class="profile_inp" value="Username">
+                </div>
+                <div class="profile_info_item">
+                  <label for="username" class="profile_info_lable">Username</label>
+                  <input type="text" name="username" id="username" class="profile_inp" value="Username">
+                </div>
+                <div class="profile_info_item">
+                  <label for="username" class="profile_info_lable"></label>
+                  <div class="profile_controls">
+                    <button class=" btn_profile_update">Update</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="container_content" id="item_order_content">
             order

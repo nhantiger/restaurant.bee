@@ -7,10 +7,10 @@ $(document).ready(function () {
     });
     $('.menu_list_item').click(function (e) { 
         e.preventDefault();
-        console.log(id_active)
+
         id_active = $(this).attr('id')
         id_content = `${$(this).attr('id')}_content`
-        console.log(id_content)
+
         $('.menu_list_item').each(function (index, element) {
             $(this).attr('id') === id_active ? $(this).addClass('item_active'): $(this).removeClass('item_active');
         });
@@ -25,5 +25,18 @@ $(document).ready(function () {
     $('.info_close_icon').click(function (e) { 
         e.preventDefault();
         $('#user_info_modal').css({'display':'none'});
+    });
+    $('#btn_open_modal_proccess').click(function (e) { 
+        e.preventDefault();
+        $('#user_proccess_modal').css('display','block');
+    });
+
+    $('#btn_open_remove_dinalog').click(function (e) { 
+        e.preventDefault();
+        $('.dinalog_remove').css('display','block');
+    });
+    $('#cancel_dinalog').click(function (e) { 
+        e.preventDefault();
+        $('.dinalog_remove').css({'display':'none'});
     });
 });
