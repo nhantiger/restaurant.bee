@@ -48,9 +48,14 @@ $(document).ready(function () {
     $('.cancel_proccess').click(function (e) { 
         e.preventDefault();
         $('#gallery_proccess_modal').css('display','none');
+        $('#gallery_new_modal').css('display','none');
     });
     $('#btn_open_modal_proccess_gallery').click(function (e) { 
         e.preventDefault();
         $('#gallery_proccess_modal').css('display','block');
+    });
+    $('#btn_new_gallery').click(function (e) { 
+        e.preventDefault();
+        $('#gallery_new_modal').css('display','block');
     });
 });

@@ -370,7 +370,7 @@
     min-width: 200px;
 }
 #gallery_proccess_modal{
-    display: block;
+    
 }
 .proccess_heading{
     padding: 20px;
@@ -414,5 +414,20 @@
 }
 .cancel_proccess{
     background-color: var(--primary_red);
+}
+.new_gallery{
+    display: flex;
+    gap: 5px;
+    margin: 0 10px;
+    align-items: center;
+}
+.new_gallery:hover{
+    background-color: var(--primary_cryan_hover);
+}
+#gallery_new_modal{
+    display: block;
+}
+#blog_new_modal{
+    display: block;
 }
 /*admin*/
