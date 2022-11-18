@@ -8,4 +8,12 @@
     --primary_cryan: #17a2b8;
     --primary_cryan_hover: #0db5cf;
 }
+.btn_primary{
+    padding: 8px;
+    color: #fff;
+    background-color: var(--primary_cryan);
+    min-width: 80px;
+    border-radius: 4px;
+    text-align: center;
+}
 

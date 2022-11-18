@@ -258,9 +258,6 @@
 .user_proccess_modal{
     padding: 20px;
 }
-.proccess_form_item{
-    margin: 10px 0;
-}
 .dinalog_remove{
     position: absolute;
     top: 50%;
@@ -343,5 +340,79 @@
 }
 .btn_profile_update:hover{
     background-color: var(--primary_cryan_hover);
+}
+.profile_set_avatar{
+    display: none;
+}
+.profile_set_avatar_label{
+    color: var(--primary_cryan);
+    cursor: pointer;
+}
+.profile_set_avatar_label:hover{
+    color: var(--primary_cryan_hover);
+    text-decoration: underline;
+}
+.order_heading{
+    color: var(--primary_red);
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}
+.order_body{
+    padding: 20px;
+}
+.order_info{
+    display: flex;
+    margin: 20px 0;
+}
+.order_lable{
+    font-weight: bold;
+    min-width: 200px;
+}
+#gallery_proccess_modal{
+    display: block;
+}
+.proccess_heading{
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+.proccess_form{
+    padding: 20px;
+}
+.proccess_title{
+    min-width: 200px;
+    font-weight: bold;
+    display: block;
+}
+.proccess_form_item{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+.proccess_inp_gallery{
+    outline-width: 1px;
+    outline-color: #ccc;
+    outline-style: solid;
+    padding: 5px;
+    border-radius: 2px;
+    min-width: 50%;
+}
+.proccess_inp_gallery:focus-visible{
+   outline: none; 
+}
+.btn_proccess_submit_gallery{
+    padding: 8px;
+    color: #fff;
+    background-color: var(--primary_cryan);
+    min-width: 80px;
+    border-radius: 4px;
+}
+.proccess_controls_gallery{
+    display: flex;
+    gap : 20px
+}
+.cancel_proccess{
+    background-color: var(--primary_red);
 }
 /*admin*/
