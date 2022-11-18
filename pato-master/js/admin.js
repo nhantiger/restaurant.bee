@@ -49,6 +49,7 @@ $(document).ready(function () {
         e.preventDefault();
         $('#gallery_proccess_modal').css('display','none');
         $('#gallery_new_modal').css('display','none');
+        $('#blog_new_modal').css('display','none');
     });
     $('#btn_open_modal_proccess_gallery').click(function (e) { 
         e.preventDefault();
@@ -57,5 +58,13 @@ $(document).ready(function () {
     $('#btn_new_gallery').click(function (e) { 
         e.preventDefault();
         $('#gallery_new_modal').css('display','block');
+    });
+    $('#btn_new_blog').click(function (e) { 
+        e.preventDefault();
+        $('#blog_new_modal').css('display','block');
+    });
+    $('#btn_open_modal_proccess_blog').click(function (e) { 
+        e.preventDefault();
+        $('#blog_proccess_modal').css('display','block');
     });
 });
