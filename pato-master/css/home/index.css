@@ -1,0 +1,53 @@
+.profile_modal{
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.4);
+}
+.profile_user_content{
+    width: 60%;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 4px solid var(--primary_red);
+}
+
+/*user setting box*/
+.user_control:hover .user_setting{
+    display: block;
+}
+.user_setting{
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    right: 0;
+    top: 100%;
+    min-width: 200px;
+    border-radius: 4px;
+}
+.user_setting::after{
+    position: inherit;
+    content: "";
+    border: 10px solid;
+    border-color: transparent transparent #fff transparent;
+    top: -20px;
+    right: 11%;
+}
+.user_setting_heading{
+    color: var(--primary_red);
+    padding: 5px 10px;
+    border-bottom: 1px solid var(--primary_red);
+}
+.user_setting_item{
+    padding: 5px 10px; 
+}
+.user_setting_item:hover{
+    color: var(--primary_cryan_hover);
+    text-decoration: underline;
+    cursor: pointer;
+}
+/*user setting box*/

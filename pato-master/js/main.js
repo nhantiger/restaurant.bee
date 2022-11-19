@@ -211,3 +211,15 @@ $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip()
     })
 });
+//show profile modal
+
+$(document).ready(function () {
+    $('#btn_open_profile_modal').click(function (e) { 
+        e.preventDefault();
+        $('.profile_modal').css('display','flex');
+    });
+    $('#btn_close_profile_modal').click(function (e) { 
+        e.preventDefault();
+        $('.profile_modal').css('display','none');
+    });
+});

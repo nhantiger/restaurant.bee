@@ -49,6 +49,7 @@ $(document).ready(function () {
         e.preventDefault();
         $('#gallery_proccess_modal').css('display','none');
         $('#gallery_new_modal').css('display','none');
+        $('#blog_proccess_modal').css('display','none');
         $('#blog_new_modal').css('display','none');
     });
     $('#btn_open_modal_proccess_gallery').click(function (e) { 

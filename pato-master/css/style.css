@@ -17,5 +17,14 @@
     text-align: center;
     cursor: pointer;
 }
+.btn_primary_red{
+    padding: 8px;
+    color: #fff;
+    background-color: var(--primary_red);
+    min-width: 80px;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+}
 
 

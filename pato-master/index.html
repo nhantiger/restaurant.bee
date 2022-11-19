@@ -34,6 +34,8 @@
   <link rel="stylesheet" type="text/css" href="css/util.css" />
   <link rel="stylesheet" type="text/css" href="css/main.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="css/admin/index.css">
+  <link rel="stylesheet" href="css/home/index.css">
   <!--===============================================================================================-->
 </head>
 
@@ -91,23 +93,28 @@
             <a href="#"><i class="fa fa-tripadvisor" aria-hidden="true"></i></a>
             <div>
               <button type="button" class="btn btn-round " data-toggle="modal" data-target="#loginModal">
-                <i class="fa fa-user text-white" aria-hidden="true"></i>
+                <i class="fa fa-sign-in text-white" aria-hidden="true"></i>
               </button>
             </div>
-
-            <div>
-              <button type="button" class="btn-round " data-toggle="modal" data-target="#cartModal">
-                <i class="fa fa-cart-plus text-white" aria-hidden="true"></i>
+            <div class="pos-relative user_control">
+              <button type="button" class="btn btn-round ">
+                <i class="fa fa-user-circle-o text-white" aria-hidden="true"></i>
               </button>
+              <div class="user_setting">
+                <div class="user_setting_heading">Username</div>
+                <ul class="user_setting_list">
+                  <li class="user_setting_item" id="btn_open_profile_modal">Profile</li>
+                  <li class="user_setting_item">Sign out</li>
+                </ul>
+              </div>
             </div>
-
             <button class="btn-show-sidebar m-l-33 trans-0-4"></button>
           </div>
         </div>
       </div>
     </div>
     <!-- dang nhap dang ky -->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"     aria-labelledby="exampleModalLabel"
       aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered d-flex w-full h-full m-auto" role="document">
         <div class="modal-content m-auto">
@@ -131,7 +138,6 @@
                 <button type="button" class="btn btn-info btn-block btn-round "
                   style="width: 450px; height: 50px;">Login</button>
               </form>
-
               <div class="text-center text-muted delimiter">or use a social network</div>
               <div class="d-flex justify-content-center social-buttons">
                 <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top"
@@ -194,13 +200,106 @@
         </div>
     </div>
       <!-- dang nhap dang ky -->
-
-      <!-- cart -->
-
-      <!-- cart -->
-
   </header>
+  <!--profile-->
 
+  <div class="profile_modal">
+    <div class="profile_modal_content profile_user_content">
+      <div class="profile_header">
+        <div class="profile_avatar">
+          <img
+            src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/125296371/original/653cc81872119844644e33d40f5afd9bd61743b6/create-cool-cartoon-avatars.jpg"
+            alt="avatar_img"
+            class="avatar_img"
+          />
+        </div>
+        <div class="profile_header_title">
+          <h2 class="header_title">Username</h2>
+          <span class="header_title_sub_1">
+            <span class="title_email"> admin@gmail.com </span>
+            <span class="title_email_sub"> - Administrator </span>
+          </span>
+          <span class="header_title_sub_2"> Admin profile </span>
+          <span class="profile_chosse_avaer">
+            <label
+              for="profile_set_avatar"
+              class="profile_set_avatar_label"
+              >Setting you avatar</label
+            >
+            <input
+              type="file"
+              name="profile_set_avatar"
+              id="profile_set_avatar"
+              class="profile_set_avatar"
+              accept="image/*"
+            />
+          </span>
+        </div>
+      </div>
+      <div class="profile_body">
+        <div class="profile_body_heading">Account</div>
+        <div class="profile_info">
+          <div class="profile_info_item">
+            <label for="username" class="profile_info_lable"
+              >Username</label
+            >
+            <input
+              type="text"
+              name="username"
+              id="username"
+              class="profile_inp"
+              value="Username"
+            />
+          </div>
+          <div class="profile_info_item">
+            <label for="username" class="profile_info_lable"
+              >Username</label
+            >
+            <input
+              type="text"
+              name="username"
+              id="username"
+              class="profile_inp"
+              value="Username"
+            />
+          </div>
+          <div class="profile_info_item">
+            <label for="username" class="profile_info_lable"
+              >Username</label
+            >
+            <input
+              type="text"
+              name="username"
+              id="username"
+              class="profile_inp"
+              value="Username"
+            />
+          </div>
+          <div class="profile_info_item">
+            <label for="username" class="profile_info_lable"
+              >Username</label
+            >
+            <input
+              type="text"
+              name="username"
+              id="username"
+              class="profile_inp"
+              value="Username"
+            />
+          </div>
+          <div class="profile_info_item">
+            <label for="username" class="profile_info_lable"></label>
+            <div class="profile_controls">
+              <button class="btn_primary">Update</button>
+              <button class="btn_primary_red" id="btn_close_profile_modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--profiel-->
   <!-- Sidebar -->
   <aside class="sidebar trans-0-4">
     <!-- Button Hide sidebar -->
@@ -1367,5 +1466,4 @@
   <!--===============================================================================================-->
   <script src="js/main.js"></script>
 </body>
-
 </html>
