@@ -125,18 +125,19 @@
           </div>
           <div class="modal-body" id="loginbody">
             <div class="form-title text-center " style="margin: 25px 25px 25px 25px;">
+              <div class="login_nofication m-b-10"></div>
               <h4>Login</h4>
             </div>
             <div class="d-flex flex-column text-center">
-              <form class="login_form">
+              <form class="login_form" id="login_form">
                 <div class="form-group">
-                  <input type="email" class="form-control" id="email_login" placeholder="Your email address...">
+                  <input type="email" class="form-control" id="email_login" placeholder="Your email address..." name="email_login">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" id="password_login" placeholder="Your password...">
+                  <input type="password" class="form-control" id="password_login" placeholder="Your password..." name="password_login">
                 </div>
                 <button type="button" class="btn btn-info btn-block btn-round "
-                  style="width: 450px; height: 50px;">Login</button>
+                  style="width: 450px; height: 50px;" id="btn_login_submit">Login</button>
               </form>
               <div class="text-center text-muted delimiter">or use a social network</div>
               <div class="d-flex justify-content-center social-buttons">
@@ -160,21 +161,22 @@
           </div>
           <div class="modal-body" style="display: none;" id="registerbody">
             <div class="form-title text-center " style="margin: 25px 25px 25px 25px;">
+              <div class="register_nofication m-b-10"></div>
               <h4>Register</h4>
             </div>
             <div class="d-flex flex-column text-center">
-              <form class="register_form">
+              <form class="register_form" id="register_form">
                 <div class="form-group">
-                  <input type="email" class="form-control" id="email_register" placeholder="Your email address...">
+                  <input type="email" class="form-control" id="email_register" placeholder="Your email address..." name="email_register">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" id="password_register" placeholder="Your password...">
+                  <input type="password" class="form-control" id="password_register" placeholder="Your password..." name="password_register">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" id="pre_password_register" placeholder="Pre password...">
+                  <input type="password" class="form-control" id="pre_password_register" placeholder="Pre password..." name="pre_password_register">
                 </div>
                 <button type="button" class="btn btn-info btn-block btn-round "
-                  style="width: 450px; height: 50px;">Register</button>
+                  style="width: 450px; height: 50px;" id="btn_register_submit">Register</button>
               </form>
 
               <div class="text-center text-muted delimiter">or use a social network</div>

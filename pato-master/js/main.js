@@ -1,225 +1,291 @@
-
 (function ($) {
-    "use strict";
+  "use strict";
 
-    /*[ Load page ]
+  /*[ Load page ]
     ===========================================================*/
-    $(".animsition").animsition({
-        inClass: 'fade-in',
-        outClass: 'fade-out',
-        inDuration: 1500,
-        outDuration: 800,
-        linkElement: '.animsition-link',
-        loading: true,
-        loadingParentElement: 'html',
-        loadingClass: 'animsition-loading-1',
-        loadingInner: '<div class="cp-spinner cp-meter"></div>',
-        timeout: false,
-        timeoutCountdown: 5000,
-        onLoadEvent: true,
-        browser: [ 'animation-duration', '-webkit-animation-duration'],
-        overlay : false,
-        overlayClass : 'animsition-overlay-slide',
-        overlayParentElement : 'html',
-        transition: function(url){ window.location.href = url; }
-    });
-    
-    /*[ Back to top ]
+  $(".animsition").animsition({
+    inClass: "fade-in",
+    outClass: "fade-out",
+    inDuration: 1500,
+    outDuration: 800,
+    linkElement: ".animsition-link",
+    loading: true,
+    loadingParentElement: "html",
+    loadingClass: "animsition-loading-1",
+    loadingInner: '<div class="cp-spinner cp-meter"></div>',
+    timeout: false,
+    timeoutCountdown: 5000,
+    onLoadEvent: true,
+    browser: ["animation-duration", "-webkit-animation-duration"],
+    overlay: false,
+    overlayClass: "animsition-overlay-slide",
+    overlayParentElement: "html",
+    transition: function (url) {
+      window.location.href = url;
+    },
+  });
+
+  /*[ Back to top ]
     ===========================================================*/
-    var windowH = $(window).height()/2;
+  var windowH = $(window).height() / 2;
 
-    $(window).on('scroll',function(){
-        if ($(this).scrollTop() > windowH) {
-            $("#myBtn").css('display','flex');
-        } else {
-            $("#myBtn").css('display','none');
-        }
-    });
+  $(window).on("scroll", function () {
+    if ($(this).scrollTop() > windowH) {
+      $("#myBtn").css("display", "flex");
+    } else {
+      $("#myBtn").css("display", "none");
+    }
+  });
 
-    $('#myBtn').on("click", function(){
-        $('html, body').animate({scrollTop: 0}, 300);
-    });
+  $("#myBtn").on("click", function () {
+    $("html, body").animate({ scrollTop: 0 }, 300);
+  });
 
-
-    /*[ Select ]
+  /*[ Select ]
     ===========================================================*/
-    $(".selection-1").select2({
-        minimumResultsForSearch: 20,
-        dropdownParent: $('#dropDownSelect1')
-    });
+  $(".selection-1").select2({
+    minimumResultsForSearch: 20,
+    dropdownParent: $("#dropDownSelect1"),
+  });
 
-    /*[ Daterangepicker ]
+  /*[ Daterangepicker ]
     ===========================================================*/
-    $('.my-calendar').daterangepicker({
-        "singleDatePicker": true,
-        "showDropdowns": true,
-        locale: {
-            format: 'DD/MM/YYYY'
+  $(".my-calendar").daterangepicker({
+    singleDatePicker: true,
+    showDropdowns: true,
+    locale: {
+      format: "DD/MM/YYYY",
+    },
+  });
+
+  var myCalendar = $(".my-calendar");
+  var isClick = 0;
+
+  $(window).on("click", function () {
+    isClick = 0;
+  });
+
+  $(myCalendar).on("apply.daterangepicker", function () {
+    isClick = 0;
+  });
+
+  $(".btn-calendar").on("click", function (e) {
+    e.stopPropagation();
+
+    if (isClick == 1) isClick = 0;
+    else if (isClick == 0) isClick = 1;
+
+    if (isClick == 1) {
+      myCalendar.focus();
+    }
+  });
+
+  $(myCalendar).on("click", function (e) {
+    e.stopPropagation();
+    isClick = 1;
+  });
+
+  $(".daterangepicker").on("click", function (e) {
+    e.stopPropagation();
+  });
+
+  /*[ Play video 01]
+    ===========================================================*/
+  var srcOld = $(".video-mo-01").children("iframe").attr("src");
+
+  $('[data-target="#modal-video-01"]').on("click", function () {
+    $(".video-mo-01").children("iframe")[0].src += "&autoplay=1";
+
+    setTimeout(function () {
+      $(".video-mo-01").css("opacity", "1");
+    }, 300);
+  });
+
+  $('[data-dismiss="modal"]').on("click", function () {
+    $(".video-mo-01").children("iframe")[0].src = srcOld;
+    $(".video-mo-01").css("opacity", "0");
+  });
+
+  /*[ Fixed Header ]
+    ===========================================================*/
+  var header = $("header");
+  var logo = $(header).find(".logo img");
+  var linkLogo1 = $(logo).attr("src");
+  var linkLogo2 = $(logo).data("logofixed");
+
+  $(window).on("scroll", function () {
+    if ($(this).scrollTop() > 5 && $(this).width() > 992) {
+      $(logo).attr("src", linkLogo2);
+      $(header).addClass("header-fixed");
+    } else {
+      $(header).removeClass("header-fixed");
+      $(logo).attr("src", linkLogo1);
+    }
+  });
+
+  /*[ Show/hide sidebar ]
+    ===========================================================*/
+  $("body").append('<div class="overlay-sidebar trans-0-4"></div>');
+  var ovlSideBar = $(".overlay-sidebar");
+  var btnShowSidebar = $(".btn-show-sidebar");
+  var btnHideSidebar = $(".btn-hide-sidebar");
+  var sidebar = $(".sidebar");
+
+  $(btnShowSidebar).on("click", function () {
+    $(sidebar).addClass("show-sidebar");
+    $(ovlSideBar).addClass("show-overlay-sidebar");
+  });
+
+  $(btnHideSidebar).on("click", function () {
+    $(sidebar).removeClass("show-sidebar");
+    $(ovlSideBar).removeClass("show-overlay-sidebar");
+  });
+
+  $(ovlSideBar).on("click", function () {
+    $(sidebar).removeClass("show-sidebar");
+    $(ovlSideBar).removeClass("show-overlay-sidebar");
+  });
+
+  /*[ Isotope ]
+    ===========================================================*/
+  var $topeContainer = $(".isotope-grid");
+  var $filter = $(".filter-tope-group");
+
+  // filter items on button click
+  $filter.each(function () {
+    $filter.on("click", "button", function () {
+      var filterValue = $(this).attr("data-filter");
+      $topeContainer.isotope({ filter: filterValue });
+    });
+  });
+
+  // init Isotope
+  $(window).on("load", function () {
+    var $grid = $topeContainer.each(function () {
+      $(this).isotope({
+        itemSelector: ".isotope-item",
+        percentPosition: true,
+        animationEngine: "best-available",
+        masonry: {
+          columnWidth: ".isotope-item",
         },
+      });
     });
+  });
 
-    var myCalendar = $('.my-calendar');
-    var isClick = 0;
+  var labelGallerys = $(".label-gallery");
 
-    $(window).on('click',function(){ 
-        isClick = 0;
+  $(labelGallerys).each(function () {
+    $(this).on("click", function () {
+      for (var i = 0; i < labelGallerys.length; i++) {
+        $(labelGallerys[i]).removeClass("is-actived");
+      }
+      $(this).addClass("is-actived");
     });
+  });
 
-    $(myCalendar).on('apply.daterangepicker',function(){ 
-        isClick = 0;
-    });
-
-    $('.btn-calendar').on('click',function(e){ 
-        e.stopPropagation();
-
-        if(isClick == 1) isClick = 0;   
-        else if(isClick == 0) isClick = 1;
-
-        if (isClick == 1) {
-            myCalendar.focus();
-        }
-    });
-
-    $(myCalendar).on('click',function(e){ 
-        e.stopPropagation();
-        isClick = 1;
-    });
-
-    $('.daterangepicker').on('click',function(e){ 
-        e.stopPropagation();
-    });
-
-
-    /*[ Play video 01]
-    ===========================================================*/
-    var srcOld = $('.video-mo-01').children('iframe').attr('src');
-
-    $('[data-target="#modal-video-01"]').on('click',function(){
-        $('.video-mo-01').children('iframe')[0].src += "&autoplay=1";
-
-        setTimeout(function(){
-            $('.video-mo-01').css('opacity','1');
-        },300);      
-    });
-
-    $('[data-dismiss="modal"]').on('click',function(){
-        $('.video-mo-01').children('iframe')[0].src = srcOld;
-        $('.video-mo-01').css('opacity','0');
-    });
-    
-
-    /*[ Fixed Header ]
-    ===========================================================*/
-    var header = $('header');
-    var logo = $(header).find('.logo img');
-    var linkLogo1 = $(logo).attr('src');
-    var linkLogo2 = $(logo).data('logofixed');
-
-
-    $(window).on('scroll',function(){
-        if($(this).scrollTop() > 5 && $(this).width() > 992) {
-            $(logo).attr('src',linkLogo2);
-            $(header).addClass('header-fixed');
-        }
-        else {
-            $(header).removeClass('header-fixed');
-            $(logo).attr('src',linkLogo1);
-        }
-        
-    });
-
-    /*[ Show/hide sidebar ]
-    ===========================================================*/
-    $('body').append('<div class="overlay-sidebar trans-0-4"></div>');
-    var ovlSideBar = $('.overlay-sidebar');
-    var btnShowSidebar = $('.btn-show-sidebar');
-    var btnHideSidebar = $('.btn-hide-sidebar');
-    var sidebar = $('.sidebar');
-
-    $(btnShowSidebar).on('click', function(){
-        $(sidebar).addClass('show-sidebar');
-        $(ovlSideBar).addClass('show-overlay-sidebar');
-    })
-
-    $(btnHideSidebar).on('click', function(){
-        $(sidebar).removeClass('show-sidebar');
-        $(ovlSideBar).removeClass('show-overlay-sidebar');
-    })
-
-    $(ovlSideBar).on('click', function(){
-        $(sidebar).removeClass('show-sidebar');
-        $(ovlSideBar).removeClass('show-overlay-sidebar');
-    })
-
-
-    /*[ Isotope ]
-    ===========================================================*/
-    var $topeContainer = $('.isotope-grid');
-    var $filter = $('.filter-tope-group');
-
-    // filter items on button click
-    $filter.each(function () {
-        $filter.on('click', 'button', function () {
-            var filterValue = $(this).attr('data-filter');
-            $topeContainer.isotope({filter: filterValue});
-        });
-        
-    });
-
-    // init Isotope
-    $(window).on('load', function () {
-        var $grid = $topeContainer.each(function () {
-            $(this).isotope({
-                itemSelector: '.isotope-item',
-                percentPosition: true,
-                animationEngine : 'best-available',
-                masonry: {
-                    columnWidth: '.isotope-item'
-                }
-            });
-        });
-    });
-
-    var labelGallerys = $('.label-gallery');
-
-    $(labelGallerys).each(function(){
-        $(this).on('click', function(){
-            for(var i=0; i<labelGallerys.length; i++) {
-                $(labelGallerys[i]).removeClass('is-actived');
-            }
-            $(this).addClass('is-actived');
-        });
-    });
-
-    //handle button login to sigup and back
-    $('#btn_tosignup').on('click',function(){
-        $('#loginbody').css('display','none')
-        $('#registerbody').css('display','block')
-    })
-    $('#btn_tologin').on('click',function(){
-        $('#registerbody').css('display','none')
-        $('#loginbody').css('display','block')
-    })
-    //==============================================
-    
+  //handle button login to sigup and back
+  $("#btn_tosignup").on("click", function () {
+    $("#loginbody").css("display", "none");
+    $("#registerbody").css("display", "block");
+  });
+  $("#btn_tologin").on("click", function () {
+    $("#registerbody").css("display", "none");
+    $("#loginbody").css("display", "block");
+  });
+  //==============================================
 })(jQuery);
 
 // dang nhap dang ky show from
-$(document).ready(function() {             
-    $('#loginModal').modal('show');
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
+$(document).ready(function () {
+  $("#loginModal").modal("show");
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
 });
 //show profile modal
 
 $(document).ready(function () {
-    $('#btn_open_profile_modal').click(function (e) { 
+  $("#btn_open_profile_modal").click(function (e) {
+    e.preventDefault();
+    $(".profile_modal").css("display", "flex");
+  });
+  $("#btn_close_profile_modal").click(function (e) {
+    e.preventDefault();
+    $(".profile_modal").css("display", "none");
+  });
+});
+
+//register_post
+
+$(document).ready(function () {
+  var register_password = "";
+  var pre_register_password = "";
+  var register_email = "";
+  $("#email_register").change(function (e) {
+    e.preventDefault();
+    register_email = $(this).val();
+  });
+  $("#password_register").change(function (e) {
+    e.preventDefault();
+    register_password = $(this).val();
+  });
+  $("#pre_password_register").change(function (e) {
+    e.preventDefault();
+    pre_register_password = $(this).val();
+  });
+  $("#btn_register_submit").click(function (e) {
+    e.preventDefault();
+    if (
+      register_password === "" ||
+      pre_register_password === "" ||
+      register_email === ""
+    ) {
+      $(".register_nofication").html(
+        "Email, password, and password reentry must not be blank !"
+      );
+      $(".register_nofication").css({
+        color: "var(--primary_red)",
+      });
+    } else if (register_password !== pre_register_password) {
+      $(".register_nofication").html(
+        "Password and password reentry not match !"
+      );
+      $(".register_nofication").css({
+        color: "var(--primary_red)",
+      });
+    }
+    else{
+        ////ban cai action + payload api /// them hieu ung loading 
+            //viet code o day
+        ///---------------------
+        $(".register_nofication").html(
+            "Register successfully !"
+        );
+        $(".register_nofication").css({
+            color: "var(--primary_cryan_hover)",
+        });
+    }
+    console.log($("#register_form").serializeArray());
+    console.log("submited");
+  });
+});
+
+//login post
+
+$(document).ready(function () {
+    var email_login = '';
+    var password_login = '';
+    $('#email_login').change(function (e) { 
         e.preventDefault();
-        $('.profile_modal').css('display','flex');
+        email_login = $(this).val();
     });
-    $('#btn_close_profile_modal').click(function (e) { 
+    $('#password_login').change(function (e) { 
         e.preventDefault();
-        $('.profile_modal').css('display','none');
+        password_login = $(this).val();
+    });
+    $('#btn_login_submit').click(function (e) { 
+        e.preventDefault();
+        console.log($('#login_form').serializeArray())
     });
 });
