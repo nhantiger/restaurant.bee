@@ -284,18 +284,16 @@ $(document).ready(function () {
         e.preventDefault();
         password_login = $(this).val();
     });
-<<<<<<< HEAD
     $('.profile_modal').click(function (e) { 
         $(this).css('display','none');
     });
     $('.profile_user_content').click(function (e) { 
         e.stopPropagation();
     });
-});
-=======
     $('#btn_login_submit').click(function (e) { 
         e.preventDefault();
         console.log($('#login_form').serializeArray())
     });
+
 });
->>>>>>> 8d4940df65e81d918981e4db4f40200dcd7e4c18
+   
