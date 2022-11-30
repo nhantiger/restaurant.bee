@@ -222,4 +222,10 @@ $(document).ready(function () {
         e.preventDefault();
         $('.profile_modal').css('display','none');
     });
+    $('.profile_modal').click(function (e) { 
+        $(this).css('display','none');
+    });
+    $('.profile_user_content').click(function (e) { 
+        e.stopPropagation();
+    });
 });

@@ -68,4 +68,5 @@ $(document).ready(function () {
         e.preventDefault();
         $('#blog_proccess_modal').css('display','block');
     });
+
 });
