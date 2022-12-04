@@ -93,18 +93,18 @@
             <a href="#"><i class="fa fa-tripadvisor" aria-hidden="true"></i></a>
             <div>
               <button type="button" class="btn btn-round " data-toggle="modal" data-target="#loginModal">
-                <i class="fa fa-sign-in text-white" aria-hidden="true"></i>
+                <i class="fa fa-sign-in text-white" id="login_icon"aria-hidden="true"></i>
               </button>
             </div>
             <div class="pos-relative user_control">
               <button type="button" class="btn btn-round ">
-                <i class="fa fa-user-circle-o text-white" aria-hidden="true"></i>
+                <i class="fa fa-user-circle-o user_profile_icon" aria-hidden="true"></i>
               </button>
               <div class="user_setting">
                 <div class="user_setting_heading">Username</div>
                 <ul class="user_setting_list">
                   <li class="user_setting_item" id="btn_open_profile_modal">Profile</li>
-                  <li class="user_setting_item">Sign out</li>
+                  <li class="user_setting_item" id="log_out">Sign out</li>
                 </ul>
               </div>
             </div>
@@ -217,7 +217,7 @@
         </div>
         <div class="profile_header_title">
           <h2 class="header_title">Username</h2>
-          <span class="header_title_sub_1">
+          <span class="header_title_sub_1"> 
             <span class="title_email"> admin@gmail.com </span>
             <span class="title_email_sub"> - Administrator </span>
           </span>

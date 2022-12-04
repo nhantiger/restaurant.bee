@@ -117,9 +117,11 @@
     if ($(this).scrollTop() > 5 && $(this).width() > 992) {
       $(logo).attr("src", linkLogo2);
       $(header).addClass("header-fixed");
+      $('.user_profile_icon').css('color','#000');
     } else {
       $(header).removeClass("header-fixed");
       $(logo).attr("src", linkLogo1);
+      $('.user_profile_icon').css('color','#fff');
     }
   });
 
@@ -197,12 +199,12 @@
 })(jQuery);
 
 // dang nhap dang ky show from
-$(document).ready(function () {
-  $("#loginModal").modal("show");
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip();
-  });
-});
+// $(document).ready(function () {
+//   $("#loginModal").modal("show");
+//   $(function () {
+//     $('[data-toggle="tooltip"]').tooltip();
+//   });
+// });
 //show profile modal
 
 $(document).ready(function () {
@@ -256,18 +258,32 @@ $(document).ready(function () {
       });
     }
     else{
-        ////ban cai action + payload api /// them hieu ung loading 
-            //viet code o day
+        ////ban cai action + payload api /// them hieu ung 
+        var user_register ={
+          Ten_Dang_nhap: register_email,
+          Mat_khau: register_password,
+          isAdmin: false,
+        }
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:8080/ThemNguoidung",
+          data: JSON.stringify(user_register),
+          dataType: 'json',
+          success: function (response) {
+            console.log(response)
+            $(".register_nofication").html(
+              "Register successfully !"
+            );
+          }
+        });
         ///---------------------
         $(".register_nofication").html(
-            "Register successfully !"
+          "Loading..."
         );
         $(".register_nofication").css({
             color: "var(--primary_cryan_hover)",
         });
-    }
-    console.log($("#register_form").serializeArray());
-    console.log("submited");
+      }
   });
 });
 
@@ -292,8 +308,81 @@ $(document).ready(function () {
     });
     $('#btn_login_submit').click(function (e) { 
         e.preventDefault();
-        console.log($('#login_form').serializeArray())
+        if (
+          password_login === "" ||
+          email_login === ""
+        ) {
+          $(".login_nofication").html(
+            "Email, password must not be blank !"
+          );
+          $(".login_nofication").css({
+            color: "var(--primary_red)",
+          });
+        }
+        else{
+          $(".login_nofication").html(
+            "Loading..."
+          );
+          $(".login_nofication").css({
+            color: "var(--primary_cryan_hover)",
+          });
+          console.log('that bai')
+          console.log(email_login,password_login);
+          $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/dsNguoidung",
+            success: function (response) {
+              console.log(response);
+              var user = response.filter(function(item){
+                return item.Ten_Dang_nhap === email_login && item.Mat_khau === password_login
+              })
+              console.log(user)
+              if(user){
+                $(".login_nofication").html(
+                  "Login Successfully !"
+                );
+                $(".login_nofication").css({
+                  color: "var(--primary_cryan_hover)",
+                });
+                sessionStorage.setItem('isLogin',true)
+                sessionStorage.setItem('user',JSON.stringify(user))
+                if(user.isAdmin){
+                  document.location.href = 'http://127.0.0.1:5500/pato-master/admin.html'
+                }else{
+                  document.location.href = 'http://127.0.0.1:5500/pato-master/index.html'
+                }
+              }else{
+                $(".login_nofication").html(
+                  "Login fail !"
+                );
+                $(".login_nofication").css({
+                  color: "var(--primary_red)",
+                });
+              }
+            }
+          });
+        }
     });
-
 });
-   
+
+
+/// control user loing log out
+$(document).ready(function () {
+  console.log(sessionStorage.getItem('user'))
+  if(sessionStorage.getItem('isLogin')){
+    $('.user_control').css('display','block');
+    $('#login_icon').css('display','none');
+  }
+  $('#log_out').click(function (e) { 
+    e.preventDefault();
+    sessionStorage.clear('isLogin')
+    sessionStorage.clear('user')
+    document.location.href = 'http://127.0.0.1:5500/pato-master/index.html'
+  });
+});
+
+////user settting + profile
+$(document).ready(function () {
+  var userprofile = JSON.parse(sessionStorage.getItem('user'))[0]
+  $('.user_setting_heading').html(userprofile.Ten_Dang_nhap);
+});
